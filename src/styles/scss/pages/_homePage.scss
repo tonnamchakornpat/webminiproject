@@ -1,0 +1,19 @@
+@use '../abstract/variables' as * ;
+
+.homeContainer {
+    
+    display: grid;
+    place-items: center;
+    background-color: $primary-color2;
+
+  .itemsContainer {
+    width: 590px;
+    nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 56px;
+    }
+  }
+}
