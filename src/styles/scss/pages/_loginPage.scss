@@ -51,7 +51,7 @@
             font-size: 20px;
             padding: 0 20px;
             border-radius: 14px;
-            transition: ease-in 0.375;
+            transition: ease-in 0.3s;
 
             &:hover {
                 border: 2px solid $primary-color2;
@@ -79,17 +79,29 @@
             }
         }
 
-        a {
+        p {
             color: $primary-color2;
             font-size: 0.9rem;
             text-align: left;
             text-decoration: none;
+            cursor: pointer;
             margin-bottom: 6px;
             transition: ease-in 0, 3s;
 
             &:hover {
-                color: $primary-color1;
+                color: $primary-color2-50;
+            }
+
+        }
+
+        #backIcon {
+            transition: linear 0, 3s;
+
+            &:hover {
+                color: $primary-color2;
             }
         }
+
+
     }
 }
