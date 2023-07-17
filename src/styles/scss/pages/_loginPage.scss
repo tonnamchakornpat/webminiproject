@@ -30,6 +30,7 @@
             font-size: 36px;
             font-weight: 600;
             margin: 0 0 12px;
+            transition: 0.3s ease-out 1s;
         }
 
         h3 {
@@ -52,7 +53,7 @@
             font-size: 20px;
             padding: 0 20px;
             border-radius: 14px;
-            transition: ease-in 0.3s;
+            transition: all 0.3s ease-in;
 
             &:hover {
                 border: 2px solid $primary-color2;
@@ -96,12 +97,14 @@
         }
 
         #backIcon {
-            transition: linear 0, 3s;
+            transition: all 0.2s ease-out;
 
             &:hover {
-                color: $primary-color2;
+                color: $primary-color2-50;
+                top: -10px;
             }
         }
+
 
 
     }
