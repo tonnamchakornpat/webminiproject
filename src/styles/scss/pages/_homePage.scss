@@ -1,19 +1,8 @@
-@use '../abstract/variables' as * ;
+@use '../abstract/variables' as *;
+@forward '../components/navbar';
 
-.homeContainer {
-    
-    display: grid;
-    place-items: center;
-    background-color: $primary-color2;
-
-  .itemsContainer {
-    width: 590px;
-    nav {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      height: 56px;
-    }
-  }
+main {
+  // background-color: $primary-color3 ;
+  background-color: red;
+  width: 100vw;
 }

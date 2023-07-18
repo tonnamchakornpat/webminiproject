@@ -1,20 +1,13 @@
-import React from "react";
-import { AiOutlineLogout } from "react-icons/ai";
-import "../styles/scss/main.scss";
+import '../styles/scss/main.scss'
+import Navbar from '../components/Navbar'
 
 function HomePage() {
   return (
-    <div className="homeContainer">
-      <div className="itemsContainer">
-        <nav>
-          <h1>Header</h1>
-          <AiOutlineLogout size={"1.5rem"} />
-        </nav>
-      </div>
-
+    <>
+      <Navbar />
       <main></main>
-    </div>
-  );
+    </>
+  )
 }
 
-export default HomePage;
+export default HomePage

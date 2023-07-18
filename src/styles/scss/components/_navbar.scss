@@ -1,0 +1,83 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+// ? Navbar style 
+.Navbar {
+    overflow: hidden;
+    width: 100%;
+
+    .NavbarContainer {
+        display: grid;
+        place-items: center;
+        background-color: $primary-color2;
+        border-bottom: 1px solid $primary-color5;
+
+        h1 {
+            color: $primary-color1;
+            font-size: 1.6em;
+
+            &:hover {
+                color: $primary-color4;
+            }
+        }
+
+        .itemsContainer {
+            width: clamp(200px, 80vw, 600px);
+
+            nav {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                height: 56px;
+            }
+        }
+    }
+
+    // ? Menu 
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        left: 55%;
+        // align-items: end;
+        z-index: 5;
+        transition: all 0.5s ease-out;
+
+        li {
+            width: clamp(200px, 10vw, 250px);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: $primary-color2;
+            margin: 0.5em;
+            border-radius: 20px;
+
+            .iconMenu {
+                margin: 0.8em 0px;
+                font-size: 1.2em;
+            }
+
+            p {
+                font-size: 1.2em;
+            }
+
+
+        }
+
+        & :hover {
+            background-color: $primary-color1;
+            color: $primary-color4;
+        }
+
+        @include breakpoint(xs) {
+            left: 20vw;
+        }
+
+    }
+
+
+
+}
