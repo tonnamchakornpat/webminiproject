@@ -4,7 +4,7 @@ import { AiOutlineClose } from 'react-icons/ai'
 import { useState } from 'react'
 
 function Navbar() {
-  const [MenuStatus, setMenuStatus] = useState(true)
+  const [MenuStatus, setMenuStatus] = useState(false)
   const changeStatus = () => {
     setMenuStatus(!MenuStatus)
   }
