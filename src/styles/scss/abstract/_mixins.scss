@@ -7,8 +7,15 @@ $breakpoints: (
     "lg":"(max-width: 992px)" and "(max-width: 1199.98px)",
     "xl":"(max-width: 1200px)" and "(max-width: 1399.98px)",
     "xxl":"(max-width: 1400px)",
+    // ? mobile screen
+    "mb":"max-width:767px",
+    // ? tablet screen
+    "tl":"(min-width:767)" and "(max-width:1023px)",
+    // ? desktop screen
+    "dt":"min-width:1024",
 );
 
+// * function to set Responsive Screen Value form breakpoints
 @mixin breakpoint($user-value) {
     $my-map: map-get($breakpoints, $user-value );
 
@@ -25,4 +32,4 @@ $breakpoints: (
 
 ;
 
-// ?Animation 
+//? Animation 

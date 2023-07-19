@@ -2,82 +2,83 @@
 @use '../abstract/mixins' as *;
 
 // ? Navbar style 
-.Navbar {
-    overflow: hidden;
-    width: 100%;
+nav {
+    color: $primary-color1;
+    overflow-x: hidden;
+    background-color: $primary-color2;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
 
-    .NavbarContainer {
-        display: grid;
-        place-items: center;
-        background-color: $primary-color2;
-        border-bottom: 1px solid $primary-color5;
+    .container {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1140px;
+        width: 100%;
+        height: 50px;
+        margin: 0 auto;
+        padding: 0 15px;
 
         h1 {
-            color: $primary-color1;
-            font-size: 1.6em;
+            font-size: 2rem;
+            cursor: pointer;
+        }
 
-            &:hover {
-                color: $primary-color4;
+        ul {
+            display: flex;
+            margin-left: auto;
+            gap: 10px;
+
+            li {
+                color: $primary-color1;
+                font-size: 1.1rem;
+                font-weight: 600;
+                position: relative;
+                padding: 10px 15px;
+                text-transform: uppercase;
+                transition: all 0.6s ease-in-out;
+
+                &:hover {
+                    background-color: $primary-color2-50;
+                    color: $primary-color2;
+                }
             }
         }
 
-        .itemsContainer {
-            width: clamp(200px, 80vw, 600px);
 
-            nav {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                height: 56px;
-            }
-        }
     }
 
-    // ? Menu 
+    .toggleBtn {
+        display: none;
+    }
 
-    ul {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        left: 55%;
-        // align-items: end;
-        z-index: 5;
-        transition: all 0.5s ease-out;
+    a {
+        text-decoration: none;
+    }
 
-        li {
-            width: clamp(200px, 10vw, 250px);
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
+    @include breakpoint(mb) {
+        ul {
+            position: fixed;
+            z-index: 10;
+            top: 50px;
+            left: 0;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
             background-color: $primary-color2;
-            margin: 0.5em;
-            border-radius: 20px;
-
-            .iconMenu {
-                margin: 0.8em 0px;
-                font-size: 1.2em;
-            }
-
-            p {
-                font-size: 1.2em;
-            }
-
-
+            opacity: 0;
+            visibility: hidden;
+            width: 100%;
+            height: 100%;
+            transition: 0.5s;
         }
 
-        & :hover {
-            background-color: $primary-color1;
-            color: $primary-color4;
+        .toggleBtn {
+            display: block;
+            cursor: pointer;
         }
-
-        @include breakpoint(xs) {
-            left: 20vw;
-        }
-
     }
-
-
-
 }
