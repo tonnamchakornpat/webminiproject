@@ -47,7 +47,7 @@
         }
 
         input {
-            width: 100%;
+            width: auto;
             height: 50px;
             border: 2px solid #ebebeb;
             font-size: 20px;
@@ -105,7 +105,11 @@
             }
         }
 
-
+        @include breakpoint(xs) {
+            input:text {
+                width: 120px;
+            }
+        }
 
     }
 }

@@ -1,0 +1,46 @@
+@use '../abstract/variables' as *;
+
+article.content {
+    border: 2px solid $primary-color5 ;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 10px 20px;
+    height: 120px;
+    width: 100%;
+    background-color: white;
+    transition: all 0.25s ease-in .25ms;
+
+
+    h2 {
+        font-size: clamp(16px, 1.2em, 32px);
+        color: $primary-color1;
+        text-decoration: underline;
+    }
+
+    &:hover {
+        background-color: $primary-color5;
+        border: 2px solid $primary-color2-50;
+
+        h2 {
+
+            color: $primary-color4;
+        }
+    }
+
+    p {
+
+        span {
+            margin-right: 10px;
+
+            &:nth-child(2) {
+                margin-left: 10px;
+                color: $primary-color5;
+            }
+        }
+
+
+    }
+}
