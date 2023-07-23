@@ -1,0 +1,26 @@
+@use '../abstract/variables' as *;
+
+article.commentContainer {
+    width: clamp(200px, 80vw, 820px);
+    margin: 16px 0px;
+    height: auto;
+    border: 2px solid $primary-color5 ;
+    border-radius: 14px;
+    padding: 20px 15px;
+    color: $primary-color1;
+
+    h2 {
+        color: $primary-color1;
+        font-size: clamp(12px, 1em, 28px);
+        margin-bottom: 8px;
+
+        span {
+
+            &:nth-child(2) {
+                margin-left: 3px;
+                font-size: clamp(10px, 0.8em, 26px);
+                color: $primary-color5;
+            }
+        }
+    }
+}

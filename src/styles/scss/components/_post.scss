@@ -1,6 +1,7 @@
 @use '../abstract/variables' as *;
 
 article.content {
+    color: $primary-color1;
     border: 2px solid $primary-color5 ;
     border-radius: 14px;
     display: flex;
@@ -31,6 +32,7 @@ article.content {
     }
 
     p {
+        color: $primary-color1;
 
         span {
             margin-right: 10px;
@@ -43,4 +45,34 @@ article.content {
 
 
     }
+}
+
+article.detailContainer {
+    color: $primary-color1;
+    margin-top: 50px;
+    padding-top: 20px;
+    width: clamp(200px, 80vw, 820px);
+    height: auto;
+    border: 2px solid $primary-color5 ;
+    border-radius: 14px;
+    padding: 40px 15px 30px;
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+
+    p {
+        &.content {
+            color: $primary-color1;
+            font-size: clamp(16px, 2vw, 1.2em);
+            margin-bottom: 10px;
+        }
+
+        &:nth-of-type(3) {
+            margin-top: 4px;
+            color: $primary-color5;
+        }
+    }
+
 }

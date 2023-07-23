@@ -1,6 +1,6 @@
 import '../styles/scss/main.scss'
 import Navbar from '../components/Navbar'
-import Post from '../components/Post'
+import { Post } from '../components/Post'
 
 const posts = [
   {
