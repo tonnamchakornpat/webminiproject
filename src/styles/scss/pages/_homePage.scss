@@ -18,7 +18,11 @@ main {
     width: clamp(200px, 80vw, 620px);
     height: 20vh;
 
-
+    a {
+      height: 120px;
+      width: 100%;
+      text-decoration: none;
+    }
 
   }
 }

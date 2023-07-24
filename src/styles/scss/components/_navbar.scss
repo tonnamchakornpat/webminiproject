@@ -22,10 +22,15 @@ nav {
         margin: 0 auto;
         padding: 0 15px;
 
-        h1 {
-            font-size: 2rem;
-            cursor: pointer;
+        .logo {
+            h1 {
+                font-size: 2em;
+                cursor: pointer;
+                color: $primary-color1;
+            }
+
         }
+
 
         ul {
             display: flex;

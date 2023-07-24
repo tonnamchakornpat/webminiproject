@@ -1,6 +1,7 @@
 import '../styles/scss/main.scss'
 import Navbar from '../components/Navbar'
 import { Post } from '../components/Post'
+import { Link } from 'react-router-dom'
 
 const posts = [
   {
@@ -27,12 +28,14 @@ function HomePage() {
       <main>
         <section className="contents">
           {posts.map((post) => (
-            <Post
-              postId={post.postId}
-              title={post.title}
-              name={post.name}
-              datetime={post.time}
-            />
+            <Link to={`/post/:${post.postId}`}>
+              <Post
+                postId={post.postId}
+                title={post.title}
+                name={post.name}
+                dateTime={post.time}
+              />
+            </Link>
           ))}
         </section>
       </main>

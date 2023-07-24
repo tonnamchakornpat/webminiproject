@@ -2,6 +2,7 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import { RiLogoutBoxRLine, RiFileList2Line, RiEdit2Line } from 'react-icons/ri'
 import { AiOutlineClose } from 'react-icons/ai'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   const [MenuStatus, setMenuStatus] = useState(false)
@@ -17,7 +18,9 @@ function Navbar() {
     <nav>
       <div className="container">
         <div className="logo">
-          <h1>Hello</h1>
+          <Link to="/">
+            <h1>Hello</h1>
+          </Link>
         </div>
         {
           <GiHamburgerMenu
@@ -27,15 +30,15 @@ function Navbar() {
           />
         }
         <ul className="list" style={MenuStatus ? styleMenu : null}>
-          <a href="#">
+          <Link to="/my_posts">
             <li>My Post</li>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="/create_post">
             <li>Create New</li>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <li>Logout</li>
-          </a>
+          </Link>
         </ul>
       </div>
     </nav>
