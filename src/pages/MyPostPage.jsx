@@ -1,5 +1,5 @@
 import Navbar from '../components/Navbar';
-import { Post, PostContent } from '../components/Post';
+import { PostContent } from '../components/Post';
 import '../styles/scss/main.scss'
 
 
@@ -26,11 +26,13 @@ function MyPostPage() {
     return (
         <>
           <Navbar />
-          <main>
+          <main
+          >
             <section className="mypostsContainer">
+              
               {posts?.map((post) => (
                 
-                <div className='mypostContainer'>
+                <div className='mypostContainer' key={post.postId}>
                     <PostContent
                   postId={post.postId}
                   title={post.title}
