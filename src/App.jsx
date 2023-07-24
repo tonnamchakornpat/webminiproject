@@ -1,4 +1,4 @@
-import './styles/scss/main.scss'
+// import './styles/scss/main.scss'
 // import LoginPage from './pages/LoginPage'
 // import HomePage from './pages/HomePage'
 // import PostAndCommPage from './pages/PostAndCommPage'
