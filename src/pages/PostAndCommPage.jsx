@@ -21,12 +21,37 @@ const PostAndCommPage = () => {
 export default PostAndCommPage
 
 function Contents() {
+  const [commentText, setCommentText] = useState('')
   const { postId } = useParams()
 
   const [showForm, setShowForm] = useState(true)
 
   const [post, setPost] = useState({})
   const [comments, setComments] = useState([])
+
+  async function handleSendComment() {
+    try {
+      if (commentText != '') {
+        const response = await axios.post(
+          `${apiUrl}/create/comment`,
+          {
+            postId: postId,
+            content: commentText,
+          },
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          }
+        )
+        getPostAndComments()
+
+        setCommentText('')
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   async function getPostAndComments() {
     try {
@@ -61,22 +86,30 @@ function Contents() {
             <h2>COMMENTS</h2>
             <label for="Comment">
               <input type="checkbox" name="Comment" id="Comment" />
-              <AiFillMessage
-                className="icon"
-                size={'1.3em'}
-                onClick={() => setShowForm(true)}
-              />
+
               <AiFillCloseCircle
                 className="icon"
                 size={'1.3em'}
                 onClick={() => setShowForm(false)}
               />
+              <AiFillMessage
+                className="icon"
+                size={'1.3em'}
+                onClick={() => setShowForm(true)}
+              />
             </label>
           </div>
           {showForm && (
             <form className="inputContainer">
-              <textarea name="icontent" id="icontent" rows="8"></textarea>
-              <input type="button" value="Send" />
+              <textarea
+                name="icontent"
+                id="icontent"
+                rows="8"
+                onChange={(e) => {
+                  setCommentText(e.target.value)
+                }}
+              />
+              <input type="button" value="Send" onClick={handleSendComment} />
             </form>
           )}
           {comments.map((comment) => (

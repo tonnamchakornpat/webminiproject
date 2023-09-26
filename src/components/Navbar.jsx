@@ -2,10 +2,15 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import { RiLogoutBoxRLine, RiFileList2Line, RiEdit2Line } from 'react-icons/ri'
 import { AiOutlineClose } from 'react-icons/ai'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import Swal from 'sweetalert2'
+
+const apiUrl = import.meta.env.VITE_API_URL
 
 function Navbar() {
   const [MenuStatus, setMenuStatus] = useState(false)
+  const navigate = useNavigate()
   const changeStatus = () => {
     setMenuStatus(!MenuStatus)
   }
@@ -13,6 +18,41 @@ function Navbar() {
     opacity: '1',
     visibility: 'visible',
   }
+
+  const logoutAlert = () =>
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      showCancelButton: true,
+      confirmButtonColor: '#53D3D1',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .get(`${apiUrl}/user/logout`, {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          })
+          .then((res) => {
+            if (res.status === 200) {
+              localStorage.removeItem('token')
+              Swal.fire({
+                text: 'You have been logged out',
+                confirmButtonColor: '#53D3D1',
+                confirmButtonText: 'ok',
+              }).then(() => {
+                navigate('/login')
+              })
+            }
+          })
+          .catch((error) => {
+            console.error('Error:', error)
+          })
+      }
+    })
 
   return (
     <nav>
@@ -36,7 +76,7 @@ function Navbar() {
           <Link to="/create_post">
             <li>Create New</li>
           </Link>
-          <Link to="#">
+          <Link onClick={logoutAlert}>
             <li>Logout</li>
           </Link>
         </ul>

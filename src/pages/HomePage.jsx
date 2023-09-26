@@ -7,13 +7,17 @@ import axios from 'axios'
 
 const apiUrl = import.meta.env.VITE_API_URL
 
-function HomePage() {
+function HomePage(props) {
   const [posts, setPosts] = useState([])
 
   async function fetchPosts() {
     try {
-      const res = await axios.get(`${apiUrl}/get/posts`)
-      console.log(res.data)
+      const res = await axios.get(`${apiUrl}/get/posts`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      })
+      // console.log(res.data)
       setPosts(res.data)
     } catch (error) {
       console.error(error)
@@ -21,6 +25,7 @@ function HomePage() {
   }
 
   useEffect(() => {
+    props.auth
     fetchPosts()
   }, [])
 
@@ -30,7 +35,7 @@ function HomePage() {
       <main>
         <section className="contents">
           {posts.map((post) => (
-            <Link to={`/post/${post.id}`}>
+            <Link to={`/post/${post.id}`} key={post.id}>
               <Post
                 postId={post.id}
                 title={post.title}

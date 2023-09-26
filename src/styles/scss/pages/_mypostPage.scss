@@ -1,8 +1,8 @@
-@use '../abstract/variables' as * ;
+@use '../abstract/variables' as *;
 
 main {
 
-    .mypostsContainer{
+    .mypostsContainer {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 10px;
@@ -10,62 +10,63 @@ main {
         padding-top: 30px;
         width: clamp(200px, 80vw, 820px);
         height: 30vh;
-    
-    
-        .mypostContainer{
+
+
+        .mypostContainer {
             display: flex;
             flex-direction: column;
             align-items: center;
-            
-        .buttonContainer{
-    
-    
-            input[type=button] {
-                margin: 10px 50px 10px 50px;
-                
-                
-                &:first-of-type{
-                    color: $primary-color1;
-                    background-color: $primary-color2;
-                    border: 1px solid $primary-color5;
-                    border-radius: 20px;
-                    padding: 8px;
-                    width: 70px;
-                    transition: all 0.3s ease-in ;
-                    
-    
-                    &:hover{
-                        background-color: $primary-color1;
-                        color: $primary-color2;
-                        
+
+            .buttonContainer {
+
+
+                input[type=button] {
+                    margin: 10px 50px 10px 50px;
+                    min-width: 100px;
+
+                    &:first-of-type {
+                        color: $primary-color1;
+                        background-color: $primary-color2;
+                        border: 1px solid $primary-color5;
+                        border-radius: 20px;
+                        padding: 8px;
+                        width: 70px;
+                        transition: all 0.3s ease-in;
+
+
+                        &:hover {
+                            background-color: $primary-color1;
+                            color: $primary-color2;
+
+                        }
+
                     }
-                    
-                }
-                &:nth-of-type(2){
-                    color: $primary-color1;
-                    border: 1px solid $primary-color5;
-                    border-radius: 20px;
-                    padding: 8px;
-                    width: 80px;
-                    transition: all 0.3s ease-in ;
-    
-                    &:hover{
-                        background-color: #ff0000;
-                        color: whitesmoke;
-                        
+
+                    &:nth-of-type(2) {
+                        color: $primary-color1;
+                        border: 1px solid $primary-color5;
+                        border-radius: 20px;
+                        padding: 8px;
+                        width: 80px;
+                        transition: all 0.3s ease-in;
+
+                        &:hover {
+                            background-color: #ff0000;
+                            color: whitesmoke;
+
+                        }
                     }
+
                 }
-                
+
             }
-            
+
+
+
+
+
         }
-            
-            
-            
-    
-    
-        }
-    
+
     }
 
 }

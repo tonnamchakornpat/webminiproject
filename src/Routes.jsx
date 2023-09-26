@@ -4,6 +4,9 @@ import HomePage from './pages/HomePage'
 import PostAndCommPage from './pages/PostAndCommPage'
 import MyPostPage from './pages/MyPostPage'
 import CreatepostPage from './pages/CreatepostPage'
+import EditPostPage from './pages/EditPostPage'
+
+import RequireAuth from './checkAuth'
 
 const MyRoute = createBrowserRouter([
   {
@@ -12,7 +15,11 @@ const MyRoute = createBrowserRouter([
   },
   {
     path: '/',
-    element: <HomePage />,
+    element: (
+      <RequireAuth>
+        <HomePage />
+      </RequireAuth>
+    ),
   },
   {
     path: 'login',
@@ -20,15 +27,35 @@ const MyRoute = createBrowserRouter([
   },
   {
     path: 'my_posts',
-    element: <MyPostPage />,
+    element: (
+      <RequireAuth>
+        <MyPostPage />
+      </RequireAuth>
+    ),
   },
   {
     path: 'create_post',
-    element: <CreatepostPage />,
+    element: (
+      <RequireAuth>
+        <CreatepostPage />
+      </RequireAuth>
+    ),
   },
   {
     path: 'post/:postId',
-    element: <PostAndCommPage />,
+    element: (
+      <RequireAuth>
+        <PostAndCommPage />
+      </RequireAuth>
+    ),
+  },
+  {
+    path: 'my_posts/edit/:postId',
+    element: (
+      <RequireAuth>
+        <EditPostPage />
+      </RequireAuth>
+    ),
   },
 ])
 

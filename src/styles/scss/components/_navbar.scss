@@ -27,6 +27,10 @@ nav {
                 font-size: 2em;
                 cursor: pointer;
                 color: $primary-color1;
+
+                &:hover {
+                    color: $primary-color4;
+                }
             }
 
         }

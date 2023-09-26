@@ -14,12 +14,13 @@ main {
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
     justify-items: center;
-    padding-top: 20px;
-    width: clamp(200px, 80vw, 620px);
-    height: 20vh;
+    padding: 20px 0px;
+    width: clamp(200px, 80vw, 740px);
+    height: 105vh;
 
     a {
-      height: 120px;
+      height: 180px;
+      margin: 5px 0px;
       width: 100%;
       text-decoration: none;
     }
