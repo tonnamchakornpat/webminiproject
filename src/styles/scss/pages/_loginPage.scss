@@ -7,17 +7,17 @@
     height: 100vh;
     margin: 0;
     padding: 0 24px;
-    background-color: $primary-color3;
 
     .loginCard {
 
         position: relative;
         z-index: 3;
+        overflow: hidden;
         width: 100%;
         margin: 0 20px;
         padding: 70px 30px 44px;
         border-radius: 1.25rem;
-        background-color: white;
+        border: 1px solid $primary-color1;
         text-align: center;
 
         @media (width >=500px) {
@@ -29,10 +29,11 @@
             font-size: 36px;
             font-weight: 600;
             margin: 0 0 12px;
+            transition: 0.3s ease-out 1s;
         }
 
         h3 {
-            color: rgb(198, 198, 198);
+            color: $primary-color5;
             margin: 0 0 30px;
             font-weight: 500;
         }
@@ -45,13 +46,13 @@
         }
 
         input {
-            width: 100%;
+            width: auto;
             height: 50px;
             border: 2px solid #ebebeb;
             font-size: 20px;
             padding: 0 20px;
             border-radius: 14px;
-            transition: ease-in 0.375;
+            transition: all 0.3s ease-in;
 
             &:hover {
                 border: 2px solid $primary-color2;
@@ -79,17 +80,35 @@
             }
         }
 
-        a {
+        p {
             color: $primary-color2;
             font-size: 0.9rem;
             text-align: left;
             text-decoration: none;
+            cursor: pointer;
             margin-bottom: 6px;
             transition: ease-in 0, 3s;
 
             &:hover {
-                color: $primary-color1;
+                color: $primary-color2-50;
+            }
+
+        }
+
+        #backIcon {
+            transition: all 0.2s ease-out;
+
+            &:hover {
+                color: $primary-color2-50;
+                top: -10px;
             }
         }
+
+        @include breakpoint(xs) {
+            input:text {
+                width: 120px;
+            }
+        }
+
     }
 }

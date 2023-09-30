@@ -1,0 +1,29 @@
+@use '../abstract/variables' as *;
+@forward '../components/navbar';
+@forward '../components/post';
+
+main {
+  margin-top: 50px;
+  display: grid;
+  justify-content: center;
+  height: 100vh;
+
+  section.contents {
+
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    justify-items: center;
+    padding: 20px 0px;
+    width: clamp(200px, 80vw, 740px);
+    height: 105vh;
+
+    a {
+      height: 180px;
+      margin: 5px 0px;
+      width: 100%;
+      text-decoration: none;
+    }
+
+  }
+}

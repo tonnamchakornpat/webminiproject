@@ -1,0 +1,96 @@
+@use '../abstract/variables' as *;
+@forward '../components/comment';
+
+section.contentsContainer {
+    color: $primary-color1;
+    margin-top: 50px;
+    display: grid;
+    justify-content: center;
+
+    hr {
+        width: clamp(200px, 80vw, 820px);
+        margin: 20px 0px;
+        border-top: 3px dotted $primary-color5;
+    }
+
+    div.comment {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        input[type=checkbox] {
+            user-select: none;
+            display: none;
+
+            &:checked {
+                ~.icon {
+                    &:first-of-type {
+                        display: none;
+                    }
+
+                    &:nth-of-type(2) {
+                        display: block;
+                    }
+                }
+
+
+
+            }
+
+            &:not(:checked) {
+                ~.icon {
+
+                    &:first-of-type {
+                        display: block;
+                    }
+
+                    &:nth-of-type(2) {
+                        display: none;
+                    }
+                }
+            }
+
+        }
+
+        .icon {
+            cursor: pointer;
+        }
+
+    }
+
+
+    // ? Input Area
+    form.inputContainer {
+        width: clamp(200px, 80vw, 820px);
+        display: flex;
+        flex-direction: column;
+
+        textarea {
+            margin: 16px 0px;
+            border-radius: 14px;
+            border: 1px solid $primary-color1;
+            padding: 8px;
+            font-size: 16px;
+            width: 100%F;
+        }
+
+        input[type=button] {
+            background-color: $primary-color2;
+            color: $primary-color1;
+            border-radius: 14px;
+            border: 1px solid;
+            padding: 8px 0px;
+            font-size: 1em;
+            font-weight: bold;
+
+            &:hover {
+                background-color: $primary-color2-50;
+                color: $primary-color2;
+            }
+        }
+    }
+
+
+}
