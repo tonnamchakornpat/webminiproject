@@ -36,7 +36,7 @@ function LoginPage() {
       const response = await axios.post(`${apiUrl}/user/login`, formData)
       localStorage.setItem('token', response.data.token)
       console.log(response)
-      Swal.fire('Any fool can use a computer')
+      navigate('/')
     } catch (error) {
       if (error.response && error.response.status === 401) {
         setErrMsg('Unauthorized: กรุณาเข้าสู่ระบบใหม่')
